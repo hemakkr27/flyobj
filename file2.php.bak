@@ -1,0 +1,205 @@
+<?php
+$images = [
+    'images/a1.png',
+    'images/a2.png',
+    'images/a3.png',
+    'images/a4.png',
+    'images/a5.png',
+    'images/a6.png',
+    'images/a7.png',
+    'images/a8.png',
+    'images/a9.png',
+    /* 'images/a10.jpeg' */
+];
+?>
+
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            /* background-color: skyblue; */
+        }
+
+        #rotating-section {
+            position: relative;
+           /* height: 800px;
+            /* overflow: hidden; */
+        }
+
+        .rect1,
+        .rect2,
+        .rect3,
+         .rect4 { 
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            bottom: -250px;
+            background: #fff;
+            -webkit-animation: mymove2 6s linear infinite;
+            animation: mymove2 6s linear infinite; /* Added standard animation property */
+        }
+		
+		.rect5, .rect6, .rect7, .rect8 {
+    position: absolute;
+    width: 50px;
+    height: 5px;
+    background: #fff;
+    bottom: -451px;
+    -webkit-animation: mymove2 2s linear infinite;
+    animation: mymove2 6s linear infinite;
+}
+
+        .rect1 {
+            left: -100px; /* Updated to start off-screen on the left */
+        }
+
+        .rect2 {
+            left: -100px; /* Updated to start off-screen on the left */
+            -webkit-animation-delay: 0.6s;
+            animation-delay: 0.2s; /* Added standard animation-delay property */
+        }
+
+        .rect3 {
+            left: -100px; /* Updated to start off-screen on the left */
+            -webkit-animation-delay: 4s;
+            animation-delay: 4s; /* Added standard animation-delay property */
+        }
+
+        .rect4 {
+            left: -100px; /* Updated to start` off-screen on the left */
+            -webkit-animation-delay: 6s;
+            animation-delay: 6s; /* Added standard animation-delay property */
+        }
+
+   /*     .rect5,
+        .rect6,
+        .rect7,
+        .rect8 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            bottom: -250px;
+            -webkit-animation: mymove2 2s linear infinite;
+            animation: mymove2 6s linear infinite; /* Added standard animation property */
+        }  */
+
+        .rect5 {
+            left: -50px; /* Updated to start off-screen on the left */
+        }
+
+        .rect6 {
+            left: -50px; /* Updated to start off-screen on the left */
+            -webkit-animation-delay: 4.2s;
+            animation-delay: 4.2s; /* Added standard animation-delay property */
+        }
+
+        .rect7 {
+            left: -50px; /* Updated to start off-screen on the left */
+            -webkit-animation-delay: 2.8s;
+            animation-delay: 9.8s; /* Added standard animation-delay property */
+        }
+
+        .rect8 {
+            left: -50px; /* Updated to start off-screen on the left */
+            -webkit-animation-delay: 1.4s;
+            animation-delay: 1.4s; /* Added standard animation-delay property */
+        }
+
+        .rect9,
+        .rect10 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            bottom: -250px;
+            border-radius: 50%;
+            -webkit-animation: mymove3 2s linear infinite;
+            animation: mymove3 6s linear infinite; /* Added standard animation property */
+        }
+
+        .rect9 {
+            left: -100px; /* Updated to start off-screen on the left */
+        }
+
+        .rect10 {
+            left: -100px; /* Updated to start off-screen on the left */
+            -webkit-animation-delay: 2s;
+            animation-delay: 0s; /* Added standard animation-delay property */
+        }
+
+        @-webkit-keyframes mymove2 {
+            0% {
+                 transform: rotate(0deg); /* Updated to move from left to right */
+                opacity: 1;
+            }
+            100% {
+                 transform: rotate(720deg);/* Updated to move from left to right */
+                opacity: 0.5;
+                bottom: 540px;
+            }
+        }
+
+        @keyframes mymove2 {
+         0% {
+    left: 0;
+}
+48% {
+    -webkit-transform: rotateY(0deg);
+}
+50% {
+    left: calc(100% - 100px);
+    -webkit-transform: rotateY(120deg);
+}
+98% {
+    -webkit-transform: rotateY(180deg);
+}
+100% {
+    left: 0;
+    -webkit-transform: rotateY(0deg);
+}
+        }
+
+        @-webkit-keyframes mymove3 {
+            0% {
+                transform: translateX(-100%); /* Updated to move from left to right */
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%); /* Updated to move from left to right */
+                opacity: 0.5;
+                bottom: 540px;
+            }
+        }
+
+        @keyframes mymove3 {
+            0% {
+                transform: translateX(-100%); /* Updated to move from left to right */
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%); /* Updated to move from left to right */
+                opacity: 0.5;
+                bottom: 540px;
+            }
+        }
+
+        /* Remaining keyframes and styles omitted for brevity */
+    </style>
+</head>
+<body>
+<section id="rotating-section">
+    <div id="rotating-animation">
+        <div>
+            <?php foreach ($images as $index => $image): ?>
+                <div class="rect<?php echo $index + 1; ?>" style="-webkit-animation-delay: <?php echo $index * 0.6; ?>s; animation-delay: <?php echo $index * 0.6; ?>s;">
+                    <img src="<?php echo $image; ?>"/>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
